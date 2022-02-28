@@ -1,3 +1,6 @@
+#Build Status
+[![Build Status](https://dev.azure.com/ssudarshcelesticapoc/sonicpoc/_apis/build/status/testing_python?branchName=main)](https://dev.azure.com/ssudarshcelesticapoc/sonicpoc/_build/latest?definitionId=2&branchName=main)
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 

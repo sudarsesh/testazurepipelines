@@ -6,7 +6,7 @@ print("hello-world")
 now_str = datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
 
 if os.path.isdir('/tmp/test_logs') is False:
-    os.path.mkdir('/tmp/test_logs')
+    os.mkdir('/tmp/test_logs')
 
 log_path = "/tmp/test_logs"
     

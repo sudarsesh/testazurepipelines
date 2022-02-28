@@ -14,7 +14,9 @@ steps:
 - script: python3 hello.py
   displayName: 'Run hello.py'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '/tmp/test_logs'
+    artifactType: 'pipeline'
+    artifactName: 'hello_artifacts'
+  displayName: 'Archive log files'

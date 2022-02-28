@@ -11,8 +11,8 @@ pool:
   #name: test-pool
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: python3 hello.py
+  displayName: 'Run hello.py'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.

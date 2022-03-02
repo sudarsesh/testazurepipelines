@@ -33,19 +33,18 @@ resources:
      name: sudarsesh/python-multi-repo-1
 
 steps:
-
 - checkout: self
-
-- bash: ls -l
-  displayName: print the contents of workspace
-  
-- script: python3 hello.py
-  displayName: 'Run hello.py'
 
 - checkout: mypythonrepo
   displayName: checkout sudarsesh/python-multi-repo-1
 
+- bash: ls -l
+  displayName: print the contents of workspace
+
 - script: python3 python-multi-repo1/external.py
+  displayName: run external.py from python-multi-repo1
+
+- script: python3 testazurepipelines/external.py
   displayName: run external.py from python-multi-repo1
 
 - task: PublishPipelineArtifact@1

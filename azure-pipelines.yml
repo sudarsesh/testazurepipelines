@@ -2,6 +2,21 @@ parameters:
 - name: configs
   type: string
   default: 'x86,x64'
+- name: 'jobFilters'
+  type: object
+  default: ''
+- name: 'buildOptions'
+  type: string
+  default: 'SONIC_CONFIG_BUILD_JOBS=1'
+- name: 'preSteps'
+  type: stepList
+  default: []
+- name: 'postSteps'
+  type: stepList
+  default: []
+- name: 'jobGroups'
+  type: object
+  default: ''
 
 trigger:
   branches:

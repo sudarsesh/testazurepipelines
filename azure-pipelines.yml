@@ -35,6 +35,8 @@ resources:
 steps:
 - checkout: self
 
+- script: "echo nproc=$(nproc)"
+
 - checkout: mypythonrepo
   displayName: checkout sudarsesh/python-multi-repo-1
 

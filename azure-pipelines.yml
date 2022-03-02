@@ -33,6 +33,9 @@ resources:
      name: sudarsesh/python-multi-repo-1
 
 steps:
+- bash: ls -l
+  displayName: print the contents of workspace
+  
 - script: python3 hello.py
   displayName: 'Run hello.py'
 

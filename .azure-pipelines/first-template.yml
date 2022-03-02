@@ -1,0 +1,4 @@
+jobs:
+  - job: first job in the template
+    steps:
+      bash: echo "inside first-template"

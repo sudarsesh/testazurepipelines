@@ -3,7 +3,10 @@ parameters:
   type: string
   default: 'x86,x64'
 
-trigger: none
+trigger:
+  branches:
+   include:
+     - main
 
 jobs:
 - ${{ if contains(parameters.configs, 'x86') }}:

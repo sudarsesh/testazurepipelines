@@ -25,9 +25,22 @@ pr:
 pool:
   vmImage: ubuntu-latest
 
+resources:
+ repositories:
+   - repository: mypythonrepo
+     endpoint: sudarsesh
+     type: github
+     name: sudarsesh/python-multi-repo-1
+
 steps:
 - script: python3 hello.py
   displayName: 'Run hello.py'
+
+- checkout: mypythonrepo
+  displayName: checkout sudarsesh/python-multi-repo-1
+
+- script: python3 python-multi-repo1/external.py
+  displayName: run external.py from python-multi-repo1
 
 - task: PublishPipelineArtifact@1
   inputs:

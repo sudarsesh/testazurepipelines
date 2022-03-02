@@ -37,7 +37,7 @@ jobs:
     steps:
     - script: echo Building arm...
 
-- template: testingazurepipelines/.azure-pipelines/first-template.yml
+- template: first-template.yml
   parameters:
     preSteps: ${{ parameters.preSteps }}
     postSteps: ${{ parameters.postSteps }}

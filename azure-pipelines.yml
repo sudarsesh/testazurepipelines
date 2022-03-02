@@ -35,7 +35,11 @@ resources:
 steps:
 - checkout: self
 
-- script: "echo nproc=$(nproc)"
+- script: | 
+    echo nproc=$(nproc)
+    echo jobFilters = ${parameters.jobFilters}
+
+
 
 - checkout: mypythonrepo
   displayName: checkout sudarsesh/python-multi-repo-1

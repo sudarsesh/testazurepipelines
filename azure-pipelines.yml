@@ -13,7 +13,6 @@ trigger:
      - README.md
      - azure-pipelines.yml
     
-
 pr:
   branches:
     include:
@@ -25,7 +24,6 @@ pr:
 
 pool:
   vmImage: ubuntu-latest
-  #name: test-pool
 
 steps:
 - script: python3 hello.py

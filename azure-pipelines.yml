@@ -36,3 +36,9 @@ jobs:
   - job: arm
     steps:
     - script: echo Building arm...
+
+- job: importing my-first-template
+  template: testingazurepipelines/.azure-pipelines/first-template.yml
+  parameters:
+    preSteps: ${{ parameters.preSteps }}
+    postSteps: ${{ parameters.postSteps }}

@@ -1,4 +1,14 @@
+parameters:
+  - name: 'preSteps'
+    type: stepList
+    default: []
+  - name: "postSteps"
+    type: stepList
+    default: []
+   
 jobs:
   - job: first job in the template
     steps:
-      bash: echo "inside first-template"
+      - ${{ parameters.preSteps }}
+      - bash: echo "inside first-template"
+      - ${{ parameters.postSteps }}

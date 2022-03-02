@@ -1,61 +1,20 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+parameters:
+- name: configs
+  type: string
+  default: 'x86,x64'
 
-trigger:
-  branches:
-   include:
-     - main
-     - test
-  paths:
-   exclude:
-     - README.md
-     - azure-pipelines.yml
-    
-pr:
-  branches:
-    include:
-      - main
-  paths:
-    exclude:
-     - README.md
-     - azure-pipelines.yml
+trigger: none
 
-pool:
-  vmImage: ubuntu-latest
-
-resources:
- repositories:
-   - repository: mypythonrepo
-     endpoint: sudarsesh
-     type: github
-     name: sudarsesh/python-multi-repo-1
-
-steps:
-- checkout: self
-
-- script: | 
-    echo nproc=$(nproc)
-    echo jobFilters = ${parameters.jobFilters}
-
-
-
-- checkout: mypythonrepo
-  displayName: checkout sudarsesh/python-multi-repo-1
-
-- bash: ls -l
-  displayName: print the contents of workspace
-
-- script: python3 python-multi-repo-1/external.py
-  displayName: run external.py from python-multi-repo1
-
-- script: python3 testazurepipelines/hello.py
-  displayName: run hello.py from testazurepipelines
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '/tmp/test_logs'
-    artifactType: 'pipeline'
-    artifactName: 'hello_artifacts'
-  displayName: 'Archive log files'
+jobs:
+- ${{ if contains(parameters.configs, 'x86') }}:
+  - job: x86
+    steps:
+    - script: echo Building x86...
+- ${{ if contains(parameters.configs, 'x64') }}:
+  - job: x64
+    steps:
+    - script: echo Building x64...
+- ${{ if contains(parameters.configs, 'arm') }}:
+  - job: arm
+    steps:
+    - script: echo Building arm...

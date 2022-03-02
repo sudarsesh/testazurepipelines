@@ -41,7 +41,7 @@ steps:
 - bash: ls -l
   displayName: print the contents of workspace
 
-- script: python3 python-multi-repo1/external.py
+- script: python3 python-multi-repo-1/external.py
   displayName: run external.py from python-multi-repo1
 
 - script: python3 testazurepipelines/external.py

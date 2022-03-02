@@ -44,8 +44,8 @@ steps:
 - script: python3 python-multi-repo-1/external.py
   displayName: run external.py from python-multi-repo1
 
-- script: python3 testazurepipelines/external.py
-  displayName: run external.py from python-multi-repo1
+- script: python3 testazurepipelines/hello.py
+  displayName: run hello.py from testazurepipelines
 
 - task: PublishPipelineArtifact@1
   inputs:

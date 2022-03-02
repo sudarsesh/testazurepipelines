@@ -33,6 +33,9 @@ resources:
      name: sudarsesh/python-multi-repo-1
 
 steps:
+
+- checkout: self
+
 - bash: ls -l
   displayName: print the contents of workspace
   

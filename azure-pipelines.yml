@@ -23,6 +23,10 @@ trigger:
    include:
      - main
 
+variables:
+ - name: CACHE_MODE
+   value: rcache
+
 jobs:
 - ${{ if contains(parameters.configs, 'x86') }}:
   - job: x86
@@ -41,3 +45,4 @@ jobs:
   parameters:
     preSteps: ${{ parameters.preSteps }}
     postSteps: ${{ parameters.postSteps }}
+    CACHE_MODE: $(CACHE_MODE)

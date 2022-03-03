@@ -25,7 +25,7 @@ trigger:
 
 variables:
  - name: CACHE_MODE
-   value: rcache
+   value: $(CACHE_MODE_VAL)
 
 jobs:
 - ${{ if contains(parameters.configs, 'x86') }}:

@@ -5,6 +5,9 @@ parameters:
   - name: "postSteps"
     type: stepList
     default: []
+  - name: "CACHE_MODE"
+    type: string
+    default: "rwcache"
    
 jobs:
   - job:
@@ -13,3 +16,4 @@ jobs:
       - ${{ parameters.preSteps }}
       - bash: echo "inside first-template"
       - ${{ parameters.postSteps }}
+      - bash: echo "CACHE_MODE=$(CACHE_MODE)"

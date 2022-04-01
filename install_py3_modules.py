@@ -53,7 +53,8 @@ def get_automation_runas_token():
     tenant_id = runas_connection["TenantId"]
 
     # Authenticate with service principal certificate
-    resource = "https://management.core.windows.net/"
+    #resource = "https://management.core.windows.net/"
+    resource = "https://management.azure.com/"
     authority_url = ("https://login.microsoftonline.com/" + tenant_id)
     context = adal.AuthenticationContext(authority_url)
     azure_credential = context.acquire_token_with_client_certificate(
@@ -129,10 +130,7 @@ if __name__ == '__main__':
             module_names = [module_name.strip() for module_name in i.split(',')]
 
     # Set Run as token for this automation accounts service principal to be used to import the package into Automation account
-    #token = get_automation_runas_token()
-    
-    res = requests.get("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=213f137c-5d99-49da-a34f-5b5524982eb1&resource=https://management.azure.com/", headers={'Metadata': 'true'})
-    token = res.json()['access_token']
+    token = get_automation_runas_token()
 
     # Import package with dependencies from pypi.org
     # azure-common, azure-core, azure-identity, azure-mgmt-core, azure-mgmt-resource, azure-mgmt-storage, azure-storage-blob, azure-storage-file-share, azure-storage-queue

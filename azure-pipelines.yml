@@ -2,21 +2,6 @@ parameters:
 - name: configs
   type: string
   default: 'x86,x64'
-- name: 'jobFilters'
-  type: object
-  default: ''
-- name: 'buildOptions'
-  type: string
-  default: 'SONIC_CONFIG_BUILD_JOBS=1'
-- name: 'preSteps'
-  type: stepList
-  default: []
-- name: 'postSteps'
-  type: stepList
-  default: []
-- name: 'jobGroups'
-  type: object
-  default: ''
 
 trigger:
   branches:
@@ -40,9 +25,3 @@ jobs:
   - job: arm
     steps:
     - script: echo Building arm...
-
-- template: .azure-pipelines/first-template.yml
-  parameters:
-    preSteps: ${{ parameters.preSteps }}
-    postSteps: ${{ parameters.postSteps }}
-    CACHE_MODE: $(CACHE_MODE)
